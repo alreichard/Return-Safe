@@ -18,7 +18,11 @@ const GeolocationSchema = new Schema({
 
     time: {
         type: Number
+    },
+    minutes: {
+        type: Number
     }
+
 });
 
 const GeoLocation = mongoose.model("Geolocation", GeolocationSchema);

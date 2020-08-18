@@ -2,8 +2,8 @@
     height: 41vh;
     width: 100%;
     padding: 5px;
-    /* border: 5px solid #B71C1C;
-    border-radius: 8px; */
+    /* /* border: 5px solid #B71C1C; */
+    /* border-radius: 8px;  */
     
 }
 
@@ -15,8 +15,36 @@
     color: black;
     background-color:rgba(255, 255, 255, 0);
     border: none;
-    border-radius: 50%;
+   
 }
+.box {
+    border-radius: 10px;
+    background: black;
+    padding: 6px; 
+    color: white;
+    opacity: 85%;
+
+    }
+.box .tri {
+
+        border-style: solid;
+        position: absolute;
+    }
+.bottom {
+        border-color: black transparent transparent transparent;
+        border-width: 8px 8px 0px 8px;
+        bottom: -8px;
+        left: 53px
+    }
+
+/* {
+    border-radius: 10px;
+    background: black;
+    padding: 6px; 
+    color: white;
+    opacity: 85%;
+
+} */
 
 .marker:focus {
     background-color:rgba(255, 255, 255, 0.5);

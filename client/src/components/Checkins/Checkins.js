@@ -6,6 +6,8 @@ import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Map from "../map/map"
+import ContactTrace from "../contactTrace/contactTrace"
+
 
 function Checkins(props) {
     const [checkins, setCheckins] = useState([]);
@@ -30,6 +32,7 @@ function Checkins(props) {
             <div className="mapOnCheckinPage">
             <Map currentDate = {props.currentDate} />
             </div>
+            <ContactTrace currentDate = {props.currentDate}/>
             <h3 className="checkinLogsTitle">Check-in Logs</h3>
 
             {props.currentDate.toDateString() === new Date().toDateString() && <Button id="addCheckinButton" className="waves-effect waves-light btn hoverable"><span className="left" onClick={props.displayForm}><i className="small material-icons left">create</i>Add Check-in</span></Button>}

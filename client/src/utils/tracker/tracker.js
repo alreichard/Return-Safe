@@ -24,12 +24,16 @@ export default{
     // if (Math.abs(lon - oldLon_id) >  (.0000898 / Math.cos(lat)) || Math.abs(lat - oldLat_id) >  (.0000895 / Math.sin(90 - lon))) {
         var duration = JSON.parse(localStorage.getItem("dur"));
         if (duration >= 10) {
+            var start1 = new Date();
+            var start = new Date(start1.setHours(0,0,0,0))
+            var today = new Date()
+            var diff =(today.getTime() - start.getTime()) / 60000;
             const location = 
                 {
                   latitude: lat.toString(),
                   longitude: lon.toString(),
                   time: duration,
-                //   userId: "b" 
+                  minutes: parseInt(diff)
                 }
             API.saveLocation(user.id, location)
 
