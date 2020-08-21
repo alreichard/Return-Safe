@@ -19,6 +19,10 @@ export default{
 
     var oldLon_id = lonLat[0]
     var oldLat_id = lonLat[1]
+  
+
+    console.log(Math.abs(lon - oldLon_id) + ">" +  (.0000898 / Math.cos(lat)))
+    console.log((.0000895 / Math.sin(90 - lon)))
 
 
     // if (Math.abs(lon - oldLon_id) >  (.0000898 / Math.cos(lat)) || Math.abs(lat - oldLat_id) >  (.0000895 / Math.sin(90 - lon))) {

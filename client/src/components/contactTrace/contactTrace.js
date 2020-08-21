@@ -34,7 +34,8 @@ function ContactTrace(props) {
          console.log(traceInfo[i].time, traceInfo[i].minutes, parseFloat(traceInfo[i].longitude.$numberDecimal), parseFloat(traceInfo[i].latitude.$numberDecimal), lowDate, highDate, user.id)
             API.contactTrack(traceInfo[i].time, traceInfo[i].minutes, traceInfo[i].longitude.$numberDecimal, traceInfo[i].latitude.$numberDecimal, lowDate, highDate, user.id)
                 .then(res => {
-                    console.log(res)
+                   console.log(res.data)
+                    // if (allPoints.includes(res.data))
                     // setAllPoints(allPoints.concat(res))
                     checkinInfo(res)
                 })
@@ -43,6 +44,8 @@ function ContactTrace(props) {
     function checkinInfo(userCompare){
         console.log(userCompare.data)
     for (var c = 0; c<userCompare.data.length; c++){
+        if (!allPoints.includes(userCompare.data[c]._id)){
+            setAllPoints(allPoints.concat(userCompare.data[c]._id))
         console.log(userCompare.data[c]._id)
         API.find(userCompare.data[c]._id, lowDate, highDate)
         .then(res => {
@@ -50,10 +53,11 @@ function ContactTrace(props) {
             setCheckinData(res)
             if (res.data[0].checkins) {
                 console.log(res.data[0].checkins);
-            } else {console.log("none to give")}
+            } 
            
             
         })
+    }
     }
     }
 

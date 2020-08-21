@@ -119,10 +119,12 @@ function Map(props) {
         let lowDate = new Date(props.currentDate.toDateString());
         let date = new Date(props.currentDate);
         let highDate = new Date(date.setHours(23, 59, 59, 999));
-
+        console.log(lowDate, highDate)
         API.getLocations(user.id, lowDate, highDate)
+        
             .then(res => {
-                console.log(res.data[0].locations)
+                console.log(res)
+                console.log(res)
                 var latitudeness = 0
                 var longitudeness = 0
                 
