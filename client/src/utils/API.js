@@ -21,8 +21,8 @@ export default {
     find: function(id, lowDate, highDate) {
         return axios.get(`/api/checkins/${id}/${lowDate}/${highDate}`);
     },
-    contactTrack: function(name, minutes, lon, lat, lowDate, highDate, user) {
-        return axios.get(`/api/tracing/${name}/${minutes}/${lon}/${lat}/${lowDate}/${highDate}/${user}`);
+    contactTrack: function(time, minutes, lon, lat, lowDate, highDate, user) {
+        return axios.get(`/api/tracing/${time}/${minutes}/${lon}/${lat}/${lowDate}/${highDate}/${user}`);
     }
     
 }

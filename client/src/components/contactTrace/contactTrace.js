@@ -11,16 +11,15 @@ function ContactTrace(props) {
     let date = new Date(props.currentDate);
     let highDate = new Date(date.setHours(23, 59, 59, 999));
 
-    const [traceInfo, setTraceInfo] = useState([])
-    const [userCompare, setUserCompare] = useState([])
+    
+    const [allPoints, setAllPoints] = useState([])
     const [checkinData, setCheckinData] = useState([])
 
 
     useEffect(() => {
         API.getLocations(user.id, lowDate, highDate)
             .then(res => {
-                console.log("This is what we want")
-                console.log(res.data[0].locations)
+                
                 
                
              runTracer(res.data[0].locations)
@@ -29,28 +28,31 @@ function ContactTrace(props) {
 
     }, [])
     function runTracer(traceInfo) {
-        console.log("itmade it")
-        console.log(traceInfo)
+        
+        
         for (var i = 0; i<traceInfo.length; i++) {
-         
+         console.log(traceInfo[i].time, traceInfo[i].minutes, parseFloat(traceInfo[i].longitude.$numberDecimal), parseFloat(traceInfo[i].latitude.$numberDecimal), lowDate, highDate, user.id)
             API.contactTrack(traceInfo[i].time, traceInfo[i].minutes, traceInfo[i].longitude.$numberDecimal, traceInfo[i].latitude.$numberDecimal, lowDate, highDate, user.id)
                 .then(res => {
-                    console.log("anything")
-                    
                     console.log(res)
+                    // setAllPoints(allPoints.concat(res))
                     checkinInfo(res)
                 })
         }
     }
     function checkinInfo(userCompare){
-    for (var c = 0; c<userCompare.length; c++){
-        API.find(userCompare[c]._id, lowDate, highDate)
+        console.log(userCompare.data)
+    for (var c = 0; c<userCompare.data.length; c++){
+        console.log(userCompare.data[c]._id)
+        API.find(userCompare.data[c]._id, lowDate, highDate)
         .then(res => {
-            console.log("anything")
+           
             setCheckinData(res)
-            console.log(res)
+            if (res.data[0].checkins) {
+                console.log(res.data[0].checkins);
+            } else {console.log("none to give")}
+           
             
-
         })
     }
     }

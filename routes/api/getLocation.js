@@ -10,4 +10,5 @@ router.route("/:id/:lowDate/:highDate")
     .get(GeolocationController.find)
 router.route("/marker/:id")  
     .post(GeolocationController.boxProps)
+   
 module.exports = router;
