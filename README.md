@@ -42,7 +42,8 @@ WHEN I click on the Data or Show Data button
 THEN I will access the check-in logs with the times of my check-ins and my reported symptoms for the current day.  
 
 WHEN I click on the Calendar or Calendar button
-THEN I will access my check-in logs, see reported symptoms, and see the pin(s) for my location for that selected day.  
+THEN I will access my check-in logs, see reported symptoms, the amount of individuals with symptoms I have been in contact with,
+and see the pin(s) for my location for that selected day.  
 
 WHEN I click on the toggle button on the header
 THEN I will enable a geolocation tracker that will record my location when I have been in a location for more than ten minutes.  
